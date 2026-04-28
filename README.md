@@ -1,4 +1,4 @@
-\# Edge AI Facial Emotion Recognition (Raspberry Pi, TFLite)
+# Edge AI Facial Emotion Recognition (Raspberry Pi, TFLite)
 
 
 
@@ -6,21 +6,21 @@ A production-style edge AI system for real-time facial emotion recognition, focu
 
 
 
-\- On-device inference (CPU-only)
+- On-device inference (CPU-only)
 
-\- Model optimization (quantization)
+- Model optimization (quantization)
 
-\- System-level profiling (latency + FPS)
+- System-level profiling (latency + FPS)
 
-\- Hardware-aware performance analysis
-
-
-
-\---
+- Hardware-aware performance analysis
 
 
 
-\## Overview
+---
+
+
+
+## Overview
 
 
 
@@ -32,21 +32,21 @@ Unlike a typical ML project that focuses only on model accuracy, this system emp
 
 
 
-\- End-to-end deployment
+- End-to-end deployment
 
-\- Latency breakdown and profiling
+- Latency breakdown and profiling
 
-\- Hardware-aware optimization
+- Hardware-aware optimization
 
-\- Trade-offs between accuracy, latency, and memory
-
-
-
-\---
+- Trade-offs between accuracy, latency, and memory
 
 
 
-\## Architecture
+---
+
+
+
+## Architecture
 
 
 
@@ -74,37 +74,35 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
 
 
 
-\## Features
+## Features
 
 
 
-\### Edge Deployment
+### Edge Deployment
 
-\- Raspberry Pi (CPU-only inference)
+- Raspberry Pi (CPU-only inference)
 
-\- Picamera2 camera pipeline
+- Picamera2 camera pipeline
 
-\- TensorFlow Lite runtime
-
-
-
-\### Model Optimization
-
-\- FP32 baseline model
-
-\- Dynamic quantization
-
-\- Full INT8 quantization
+- TensorFlow Lite runtime
 
 
+### Model Optimization
 
-\### System Profiling
+- FP32 baseline model
 
-\- Stage-level latency breakdown:
+- Dynamic quantization
+
+- Full INT8 quantization
+
+
+### System Profiling
+
+- Stage-level latency breakdown:
 
 &#x20; - camera capture
 
@@ -112,23 +110,23 @@ Prediction Overlay / Logging
 
 &#x20; - inference
 
-\- FPS measurement (real-time performance)
+- FPS measurement (real-time performance)
 
 
 
-\---
+---
 
 
 
-\## Model Training
+## Model Training
 
 
 
-\- Dataset: FER2013 (7-class emotion classification)
+- Dataset: FER2013 (7-class emotion classification)
 
-\- Backbone: MobileNetV2
+- Backbone: MobileNetV2
 
-\- Optimization:
+- Optimization:
 
 &#x20; - Class weighting (to handle imbalance)
 
@@ -136,21 +134,21 @@ Prediction Overlay / Logging
 
 
 
-\*\*Result:\*\*
+*\*Result:\*\*
 
-\- Accuracy improved from \*\*49.4% → 53.4%\*\*
-
-
-
-\---
+- Accuracy improved from \*\*49.4% → 53.4%\*\*
 
 
 
-\## Edge Deployment Performance
+---
 
 
 
-\### 📊 Raspberry Pi Benchmark (CPU-only)
+## Edge Deployment Performance
+
+
+
+### 📊 Raspberry Pi Benchmark (CPU-only)
 
 
 
@@ -164,35 +162,35 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
 
 
 
-\## Key Observations
+## Key Observations
 
 
 
-\- INT8 quantization reduced model size by \*\*\~65%\*\* with \~2% accuracy drop
+- INT8 quantization reduced model size by \*\*\~65%\*\* with \~2% accuracy drop
 
-\- INT8 improved end-to-end latency (\*\*\~17% faster total latency\*\*)
+- INT8 improved end-to-end latency (\*\*\~17% faster total latency\*\*)
 
-\- However, INT8 inference alone was slightly slower than FP32
-
-
-
-\---
+- However, INT8 inference alone was slightly slower than FP32
 
 
 
-\## Bottleneck Analysis
+---
 
 
 
-\- The system is \*\*not compute-bound\*\*
+## Bottleneck Analysis
 
-\- Inference latency: \*\*\~4–5 ms\*\*
 
-\- Camera capture latency: \*\*\~26–34 ms\*\*
+
+- The system is \*\*not compute-bound\*\*
+
+- Inference latency: \*\*\~4–5 ms\*\*
+
+- Camera capture latency: \*\*\~26–34 ms\*\*
 
 
 
@@ -200,15 +198,15 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
 
 
 
-\## System Profiling
+## System Profiling
 
 
 
-\### ⚙️ Latency Breakdown
+### ⚙️ Latency Breakdown
 
 
 
@@ -226,19 +224,19 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
 
 
 
-\## Roofline Insight
+## Roofline Insight
 
 
 
-\- Reducing compute precision (INT8) did not significantly reduce inference latency
+- Reducing compute precision (INT8) did not significantly reduce inference latency
 
-\- Indicates \*\*memory-bound behavior\*\*
+- Indicates \*\*memory-bound behavior\*\*
 
-\- Performance is dominated by:
+- Performance is dominated by:
 
 &#x20; - memory access
 
@@ -250,17 +248,17 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
 
 
 
-\## Real-Time Performance
+## Real-Time Performance
 
 
 
-\- Achieved \*\*25–30 FPS\*\* on Raspberry Pi (CPU-only)
+- Achieved \*\*25–30 FPS\*\* on Raspberry Pi (CPU-only)
 
-\- Performance varies depending on:
+- Performance varies depending on:
 
 &#x20; - camera pipeline latency
 
@@ -268,27 +266,25 @@ Prediction Overlay / Logging
 
 
 
-\---
+---
+
+
+## System Design Highlights
 
 
 
-\## System Design Highlights
-
-
-
-\- \*\*End-to-end edge AI pipeline\*\*
+- \*\*End-to-end edge AI pipeline\*\*
 
 &#x20; Camera → detection → inference → output
 
 
-
-\- \*\*Hardware-aware optimization\*\*
+- \*\*Hardware-aware optimization\*\*
 
 &#x20; Evaluated model performance directly on Raspberry Pi
 
 
 
-\- \*\*Quantization trade-off analysis\*\*
+- \*\*Quantization trade-off analysis\*\*
 
 &#x20; Compared FP32 vs INT8 across:
 
@@ -300,77 +296,77 @@ Prediction Overlay / Logging
 
 
 
-\- \*\*System-level profiling\*\*
+- \*\*System-level profiling\*\*
 
 &#x20; Identified bottlenecks beyond model inference
 
 
 
-\---
+---
 
 
 
-\## Key Insights
+## Key Insights
 
 
 
-\- Model optimization alone is insufficient for edge AI
+- Model optimization alone is insufficient for edge AI
 
-\- System bottlenecks often lie in:
+- System bottlenecks often lie in:
 
 &#x20; - input pipeline
 
 &#x20; - memory bandwidth
 
-\- Quantization benefits depend on runtime and hardware
+- Quantization benefits depend on runtime and hardware
 
 
 
-\---
+---
 
 
 
-\## Tech Stack
+## Tech Stack
 
 
 
-\- Python
+- Python
 
-\- TensorFlow / Keras
+- TensorFlow / Keras
 
-\- TensorFlow Lite
+- TensorFlow Lite
 
-\- OpenCV
+- OpenCV
 
-\- Picamera2
+- Picamera2
 
-\- Raspberry Pi
-
-
-
-\---
+- Raspberry Pi
 
 
 
-\## Future Improvements
+---
 
 
 
-\- Multi-thread pipeline (capture / inference separation)
-
-\- Frame skipping strategy
-
-\- Hardware acceleration (NPU / Coral / GPU)
-
-\- More robust face detection (MediaPipe / DNN)
+## Future Improvements
 
 
 
-\---
+- Multi-thread pipeline (capture / inference separation)
+
+- Frame skipping strategy
+
+- Hardware acceleration (NPU / Coral / GPU)
+
+- More robust face detection (MediaPipe / DNN)
 
 
 
-\## Demo
+---
+
+
+
+## Demo
 
 
 
@@ -378,19 +374,18 @@ Example output:
 
 
 
-\- Real-time FPS overlay
+- Real-time FPS overlay
 
-\- Emotion prediction with confidence
+- Emotion prediction with confidence
 
-\- Latency breakdown logs
-
-
-
-\---
+- Latency breakdown logs
 
 
+---
 
-\## Summary
+
+
+## Summary
 
 
 
@@ -406,9 +401,9 @@ Through on-device profiling, we identified that:
 
 
 
-\- Camera IO dominates latency
+- Camera IO dominates latency
 
-\- The system is memory-bound rather than compute-bound
+- The system is memory-bound rather than compute-bound
 
 
 
