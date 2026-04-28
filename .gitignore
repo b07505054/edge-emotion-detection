@@ -1,0 +1,100 @@
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# =========================
+# 🧠 ML / TFLite / Models
+# =========================
+
+# Large model files (DON’T push unless small/demo)
+*.tflite
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# TensorFlow checkpoints
+checkpoint
+*.ckpt
+*.ckpt.*
+*.pb
+
+# Saved models
+saved_model/
+
+# =========================
+# 📊 Data / Outputs
+# =========================
+data/
+datasets/
+*.csv
+*.tsv
+
+# logs / outputs
+logs/
+*.log
+outputs/
+results/
+
+# =========================
+# 🖼 Images / videos (if large datasets)
+# =========================
+*.jpg
+*.jpeg
+*.png
+*.mp4
+
+# =========================
+# ⚙️ System / IDE
+# =========================
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Mac
+.DS_Store
+
+# Linux
+*.swp
+
+# =========================
+# 🔑 Secrets
+# =========================
+.env
+*.env
+
+# =========================
+# 🧪 Testing / cache
+# =========================
+.pytest_cache/
+.cache/
+
+# =========================
+# 🔧 Edge / build artifacts
+# =========================
+build/
+*.o
+*.out
+*.exe
+
+# Raspberry Pi camera temp (if used)
+*.h264
